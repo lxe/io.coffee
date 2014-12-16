@@ -1,17 +1,18 @@
-io.js
+io.coffee
 ===
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/iojs/io.js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/lxe/io.coffee?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This repository began as a GitHub fork of
+[iojs/io.js](https://github.com/iojs/io.js), which began as a GitHub fork of
 [joyent/node](https://github.com/joyent/node).
-io.js contributions, releases, and contributorship are under an
+io.coffee contributions, releases, and contributorship are under an
 [open governance model](./CONTRIBUTING.md#governance).
 We intend to land, with increasing regularity, releases which are
 compatible with the npm ecosystem that has been built to date for node.js.
 
-### Is it io.js or IO.js or iojs or IOjs or iOjS?
+### Is it io.coffee or IO.coffee or iocoffee or IOcoffee or iOcOFFEE?
 
-The official name is **io.js**, which should never be capitalized,
+The official name is **io.coffee**, which should never be capitalized,
 especially not at the start of a sentence, unless it is being
 displayed in a location that is customarily all-caps (such as
 the title of man pages.)

@@ -4,7 +4,7 @@
 
 When opening new issues or commenting on existing issues on this repository
 please make sure discussions are related to concrete technical issues with the
-`iojs` software.
+`iocoffee` software.
 
 Discussion of non-technical topics including subjects like intellectual
 property, trademark and high level project questions should move to the
@@ -12,26 +12,26 @@ property, trademark and high level project questions should move to the
 
 ## CODE CONTRIBUTIONS
 
-The io.js project welcomes new contributors.  This document will guide you
+The io.coffee project welcomes new contributors.  This document will guide you
 through the process.
 
 
 ### FORK
 
-Fork the project [on GitHub](https://github.com/iojs/io.js) and check out
+Fork the project [on GitHub](https://github.com/lxe/io.coffee) and check out
 your copy.
 
 ```sh
-$ git clone git@github.com:username/io.js.git
-$ cd io.js
-$ git remote add upstream git://github.com/iojs/io.js.git
+$ git clone git@github.com:username/io.coffee.git
+$ cd io.coffee
+$ git remote add upstream git://github.com/lxe/io.coffee.git
 ```
 
 Now decide if you want your feature or bug fix to go into the master branch
 or the stable branch.  As a rule of thumb, bug fixes go into the stable branch
 while new features go into the master branch.
 
-The stable branch is effectively frozen; patches that change the io.js
+The stable branch is effectively frozen; patches that change the io.coffee
 API/ABI or affect the run-time behavior of applications get rejected.
 
 The rules for the master branch are less strict; consult the
@@ -41,7 +41,7 @@ In a nutshell, modules are at varying levels of API stability.  Bug fixes are
 always welcome but API or behavioral  changes to modules at stability level 3
 and up are off-limits.
 
-io.js has several bundled dependencies in the deps/ and the tools/
+io.coffee has several bundled dependencies in the deps/ and the tools/
 directories that are not part of the project proper.  Any changes to files
 in those directories or its subdirectories should be sent to their respective
 projects.  Do not send your patch to us, we cannot accept it.
@@ -150,7 +150,7 @@ node ./test/simple/test-streams2-transform.js
 $ git push origin my-feature-branch
 ```
 
-Go to https://github.com/username/io.js and select your feature branch.  Click
+Go to https://github.com/username/io.coffee and select your feature branch.  Click
 the 'Pull Request' button and fill out the form.
 
 Pull requests are usually reviewed within a few days.  If there are comments
@@ -162,7 +162,7 @@ not send out notifications when you add commits.
 [stability index page]: https://github.com/joyent/node/blob/master/doc/api/documentation.markdown
 [issue tracker]: https://github.com/joyent/node/issues
 [node.js mailing list]: http://groups.google.com/group/nodejs
-[IRC]: http://webchat.freenode.net/?channels=io.js
+[IRC]: http://webchat.freenode.net/?channels=io.coffee
 [project maintainers]: https://github.com/joyent/node/wiki/Project-Organization
 [node-forward discussion repository]: https://github.com/node-forward/discussions/issues
 
@@ -203,7 +203,7 @@ expertise to take full responsibility for the change, according to the
 - Always include the `Reviewed-by: Your Name <your-email>` in the
   commit message.
 - In commit messages also include `Fixes:` that either includes the
-  **full url** (e.g.  `https://github.com/iojs/io.js/issues/...`),
+  **full url** (e.g.  `https://github.com/lxe/io.coffee/issues/...`),
   and/or the hash and commit message if the commit fixes a bug in a
   previous commit.
 - PR's should include their full `PR-URL:` so it's easy to trace a
@@ -239,7 +239,7 @@ git merge --ff-only origin/v0.12
 Apply external patches
 
 ```sh
-curl https://github.com/iojs/io.js/pull/xxx.patch | git am --whitespace=fix
+curl https://github.com/lxe/io.coffee/pull/xxx.patch | git am --whitespace=fix
 ```
 
 Check and re-review the changes
@@ -334,20 +334,14 @@ The TC has final authority over this project including:
 ## Membership
 
 Initial membership invitations to the TC were given to individuals who
-had been active contributors to io.js, and who have significant
-experience with the management of the io.js project.  Membership is
+had been active contributors to io.coffee, and who have significant
+experience with the management of the io.coffee project.  Membership is
 expected to evolve over time according to the needs of the project.
 
 Current membership is:
 
 ```
-Ben Noordhuis (@bnoordhuis)
-Bert Belder (@piscisaureus)
-Fedor Indutny (@indutny)
-Isaac Z. Schlueter (@isaacs)
-Nathan Rajlich (@TooTallNate)
-TJ Fontaine (@tjfontaine)
-Trevor Norris (@trevnorris)
+Aleksey Smolenchuk <lxe@lxe.co>
 ```
 
 TC seats are not time-limited.  There is no fixed size of the TC.
@@ -444,13 +438,13 @@ and/or gather required information for the core team members?
   module from npm or other source? Please ensure that the test case
   that reproduces this problem is not using any external dependencies.
   If the error is not reproducible with just core modules - it is most
-  likely not a io.js problem. _Expected: `yes`_
+  likely not a io.coffee problem. _Expected: `yes`_
 * Which part of core do you think it might be related to?
   _One of: `debugger, http, assert, buffer, child_process, cluster, crypto,
   dgram, dns, domain, events, fs, http, https, module, net, os, path,
   querystring, readline, repl, smalloc, stream, timers, tls, url, util, vm,
   zlib, c++, docs, other`_ (_label_)
-* Which versions of io.js do you think are affected by this?
+* Which versions of io.coffee do you think are affected by this?
   _One of: `v0.10, v0.12, v1.0.0`_ (_label_)
 * _PR-only_ Does `make test` pass after applying this Pull Request.
   _Expected: `yes`_

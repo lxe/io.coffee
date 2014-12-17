@@ -1,0 +1,63 @@
+# Copyright Joyent, Inc. and other Node contributors.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the
+# "Software"), to deal in the Software without restriction, including
+# without limitation the rights to use, copy, modify, merge, publish,
+# distribute, sublicense, and/or sell copies of the Software, and to permit
+# persons to whom the Software is furnished to do so, subject to the
+# following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+# OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+# NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+# DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+# USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+# Check that having a worker bind to a port that's already taken doesn't
+# leave the master process in a confused state. Releasing the port and
+# trying again should Just Work[TM].
+common = require("../common")
+assert = require("assert")
+cluster = require("cluster")
+fork = require("child_process").fork
+net = require("net")
+id = "" + process.argv[2]
+if id is "undefined"
+  server = net.createServer(assert.fail)
+  server.listen common.PORT, ->
+    worker = fork(__filename, ["worker"])
+    worker.on "message", (msg) ->
+      return  if msg isnt "stop-listening"
+      server.close ->
+        worker.send "stopped-listening"
+        return
+
+      return
+
+    return
+
+else if id is "worker"
+  server = net.createServer(assert.fail)
+  server.listen common.PORT, assert.fail
+  server.on "error", common.mustCall((e) ->
+    assert e.code, "EADDRINUSE"
+    process.send "stop-listening"
+    process.once "message", (msg) ->
+      return  if msg isnt "stopped-listening"
+      server = net.createServer(assert.fail)
+      server.listen common.PORT, common.mustCall(->
+        server.close()
+        return
+      )
+      return
+
+    return
+  )
+else
+  assert 0 # Bad argument.

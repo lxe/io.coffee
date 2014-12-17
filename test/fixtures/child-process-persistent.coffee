@@ -1,0 +1,2 @@
+setInterval (->
+), 500
